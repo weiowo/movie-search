@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import MoviePage from './pages/MoviePage';
 
 function App() {
+
+  // useEffect(()=>{
+  //   fetch("https://cors-anywhere.herokuapp.com/https://cafenomad.tw/api/v1.2/cafes/taichung")
+  //   .then((res)=>res.json())
+  //   .then((response)=> console.log(response))
+  // },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<MoviePage />}/>
+          <Route path='/movie' element={<MoviePage />}/>
+        </Routes>  
+      </BrowserRouter>
     </div>
   );
 }
